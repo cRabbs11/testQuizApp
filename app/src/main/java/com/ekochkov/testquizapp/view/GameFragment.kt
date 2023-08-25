@@ -45,15 +45,21 @@ class GameFragment: Fragment() {
         }
 
         binding.answersGroup.setOnCheckedChangeListener { radioGroup, checkedId ->
-            when(checkedId) {
-                binding.radioButton1.id -> {question.playerAnswer=binding.radioButton1.text.toString()}
-                binding.radioButton2.id -> {question.playerAnswer=binding.radioButton2.text.toString()}
-                binding.radioButton3.id -> {question.playerAnswer=binding.radioButton3.text.toString()}
-                binding.radioButton4.id -> {question.playerAnswer=binding.radioButton4.text.toString()}
+            println("check changed id=$checkedId")
+            if (checkedId==-1) {
+                question.playerAnswer=Question.NO_ANSWER
+            } else {
+                when(checkedId) {
+                    binding.radioButton1.id -> {question.playerAnswer=binding.radioButton1.text.toString()}
+                    binding.radioButton2.id -> {question.playerAnswer=binding.radioButton2.text.toString()}
+                    binding.radioButton3.id -> {question.playerAnswer=binding.radioButton3.text.toString()}
+                    binding.radioButton4.id -> {question.playerAnswer=binding.radioButton4.text.toString()}
+                }
             }
         }
 
         binding.nextBtn.setOnClickListener {
+            println("playerAnswer= ${question.playerAnswer}")
             if (question.playerAnswer!=Question.NO_ANSWER) {
                 questionNumber++
                 openNextQuestion()
