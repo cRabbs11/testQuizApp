@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TestQuizApp</string>
+    <string name="play">PLAY</string>
+    <string name="results">Результаты</string>
+
+    <string name="empty_answer"> </string>
+</resources>
