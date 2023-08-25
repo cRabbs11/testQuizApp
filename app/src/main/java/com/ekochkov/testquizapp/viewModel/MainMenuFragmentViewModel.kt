@@ -12,7 +12,9 @@ class MainMenuFragmentViewModel: ViewModel() {
 
     init {
         App.instance.dagger.inject(this)
+    }
 
+    fun dropAnswers() {
         interactor.dropAnswers()
     }
 }
